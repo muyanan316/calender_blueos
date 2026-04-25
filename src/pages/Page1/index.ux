@@ -1,0 +1,210 @@
+<script>
+  const WEEK_TITLES = ['日', '一', '二', '三', '四', '五', '六']
+
+  function buildEmptyCell() {
+    return { dayText: '', cardClass: 'day-card day-card-empty', textClass: 'day-number day-number-empty' }
+  }
+
+  export default {
+    data: {
+      titleText: '',
+      weekTitles: WEEK_TITLES,
+      rows: [],
+      year: 0,
+      month: 0,
+      todayYear: 0,
+      todayMonth: 0,
+      todayDay: 0,
+    },
+
+    onInit() {
+      const now = new Date()
+      this.todayYear = now.getFullYear()
+      this.todayMonth = now.getMonth() + 1
+      this.todayDay = now.getDate()
+      this.year = this.todayYear
+      this.month = this.todayMonth
+      this.refreshCalendar()
+    },
+
+    refreshCalendar() {
+      const firstWeekDay = new Date(this.year, this.month - 1, 1).getDay()
+      const daysInMonth = new Date(this.year, this.month, 0).getDate()
+      const cells = []
+      let i = 0
+      let day = 0
+      let rowIndex = 0
+
+      this.titleText = this.year + '年 ' + this.month + '月'
+
+      for (i = 0; i < firstWeekDay; i++) {
+        cells.push(buildEmptyCell())
+      }
+
+      for (day = 1; day <= daysInMonth; day++) {
+        const isToday =
+          this.year === this.todayYear &&
+          this.month === this.todayMonth &&
+          day === this.todayDay
+
+        cells.push({
+          dayText: '' + day,
+          cardClass: isToday ? 'day-card day-card-today' : 'day-card',
+          textClass: 'day-number',
+        })
+      }
+
+      while (cells.length % 7 !== 0) {
+        cells.push(buildEmptyCell())
+      }
+
+      const rows = []
+      for (rowIndex = 0; rowIndex < cells.length; rowIndex += 7) {
+        rows.push({
+          days: cells.slice(rowIndex, rowIndex + 7),
+        })
+      }
+
+      this.rows = rows
+    },
+
+    prevYear() {
+      this.year = this.year - 1
+      this.refreshCalendar()
+    },
+
+    nextYear() {
+      this.year = this.year + 1
+      this.refreshCalendar()
+    },
+
+    prevMonth() {
+      if (this.month === 1) {
+        this.year = this.year - 1
+        this.month = 12
+      } else {
+        this.month = this.month - 1
+      }
+      this.refreshCalendar()
+    },
+
+    nextMonth() {
+      if (this.month === 12) {
+        this.year = this.year + 1
+        this.month = 1
+      } else {
+        this.month = this.month + 1
+      }
+      this.refreshCalendar()
+    },
+  }
+</script>
+
+<template>
+  <scroll class="page-scroll">
+    <div class="page-shell">
+      <text class="calendar-title">{{ titleText }}</text>
+
+      <div class="week-row">
+        <text class="week-cell" for="(index, item) in weekTitles">{{ item }}</text>
+      </div>
+
+      <div class="week-row" for="(rowIndex, row) in rows">
+        <div class="{{ item.cardClass }}" for="(index, item) in row.days">
+          <text class="{{ item.textClass }}">{{ item.dayText }}</text>
+        </div>
+      </div>
+
+      <div class="action-grid">
+          <input class="action-btn" type="button" value="上一年" onclick="prevYear" />
+          <input class="action-btn" type="button" value="下一年" onclick="nextYear" />
+          <input class="action-btn" type="button" value="上一月" onclick="prevMonth" />
+          <input class="action-btn" type="button" value="下一月" onclick="nextMonth" />
+      </div>
+    </div>
+  </scroll>
+</template>
+
+<style>
+  .page-scroll {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+  }
+
+  .page-shell {
+    width: 100%;
+    min-height: 100%;
+    background-color: #000000;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .calendar-title {
+    color: #ffffff;
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .week-row {
+    width: 430px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .week-cell {
+    width: 54px;
+    color: #8ea7bb;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .day-card {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background-color: #112235;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .day-card-empty {
+    background-color: #091522;
+  }
+
+  .day-card-today {
+    background-color: #1d6fd6;
+  }
+
+  .day-number {
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .day-number-empty {
+    color: transparent;
+  }
+
+  .action-grid {
+    width: 392px;
+    margin-top: 18px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .action-btn {
+    width: 184px;
+    height: 64px;
+    margin-bottom: 12px;
+    border-radius: 18px;
+    background-color: #17314c;
+    color: #ffffff;
+    font-size: 24px;
+  }
+</style>

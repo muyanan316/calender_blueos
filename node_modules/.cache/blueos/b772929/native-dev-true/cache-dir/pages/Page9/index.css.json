@@ -1,0 +1,67 @@
+{
+  "1898558447": {
+    ".page-scroll": {
+      "width": "100%",
+      "height": "100%",
+      "backgroundColor": "#000000"
+    },
+    ".page-shell": {
+      "width": "100%",
+      "minHeight": "100%",
+      "backgroundColor": "#000000",
+      "flexDirection": "column",
+      "alignItems": "center",
+      "paddingTop": "28px",
+      "paddingBottom": "32px"
+    },
+    ".page-title": {
+      "color": "#ffffff",
+      "fontSize": "36px",
+      "textAlign": "center"
+    },
+    ".avatar-card": {
+      "width": "410px",
+      "marginTop": "24px",
+      "paddingTop": "26px",
+      "paddingBottom": "26px",
+      "borderRadius": "30px",
+      "backgroundColor": "#131a24",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".avatar-image": {
+      "width": "220px",
+      "height": "220px",
+      "borderRadius": "110px"
+    },
+    ".info-card": {
+      "width": "410px",
+      "marginTop": "18px",
+      "paddingTop": "24px",
+      "paddingRight": "22px",
+      "paddingBottom": "24px",
+      "paddingLeft": "22px",
+      "borderRadius": "28px",
+      "backgroundColor": "#10151d",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".name-text": {
+      "color": "#ffffff",
+      "fontSize": "34px",
+      "textAlign": "center"
+    },
+    ".desc-text": {
+      "color": "#d7e0ea",
+      "fontSize": "24px",
+      "textAlign": "center",
+      "marginTop": "14px"
+    },
+    ".note-text": {
+      "color": "#8ea1b3",
+      "fontSize": "18px",
+      "textAlign": "center",
+      "marginTop": "18px"
+    }
+  }
+}

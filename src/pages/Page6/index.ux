@@ -1,0 +1,121 @@
+<script>
+  function percentText(progress) {
+    return Math.round(progress * 100) + '%'
+  }
+
+  function buildCard(progress, color, title, detail) {
+    const radius = 48
+    const circumference = 2 * Math.PI * radius
+    return {
+      title: title,
+      detail: detail,
+      color: color,
+      percent: percentText(progress),
+      circumference: '' + circumference,
+      dashOffset: '' + circumference * (1 - progress),
+    }
+  }
+
+  function isLeapYear(year) {
+    if (year % 400 === 0) return true
+    if (year % 100 === 0) return false
+    return year % 4 === 0
+  }
+
+  function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 1)
+    const current = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+    return Math.floor((current.getTime() - start.getTime()) / 86400000) + 1
+  }
+
+  function getDaysInMonth(year, month) {
+    return new Date(year, month, 0).getDate()
+  }
+
+  const WEEK_NAMES = [
+    '\u661f\u671f\u65e5',
+    '\u661f\u671f\u4e00',
+    '\u661f\u671f\u4e8c',
+    '\u661f\u671f\u4e09',
+    '\u661f\u671f\u56db',
+    '\u661f\u671f\u4e94',
+    '\u661f\u671f\u516d',
+  ]
+
+  export default {
+    data: {
+      todayText: '',
+      cards: [],
+    },
+
+    onInit() {
+      this.updateProgress()
+    },
+
+    updateProgress() {
+      const now = new Date()
+      const year = now.getFullYear()
+      const month = now.getMonth() + 1
+      const day = now.getDate()
+      const weekIndex = now.getDay()
+
+      const totalDaysOfYear = isLeapYear(year) ? 366 : 365
+      const currentDayOfYear = getDayOfYear(now)
+      const totalDaysOfMonth = getDaysInMonth(year, month)
+      const secondsToday = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds()
+
+      this.todayText = year + '\u5e74' + month + '\u6708' + day + '\u65e5'
+      this.cards = [
+        buildCard(currentDayOfYear / totalDaysOfYear, '#ff6b6b', '\u5e74', '\u7b2c ' + currentDayOfYear + ' / ' + totalDaysOfYear + ' \u5929'),
+        buildCard(day / totalDaysOfMonth, '#4ecdc4', '\u6708', '\u7b2c ' + day + ' / ' + totalDaysOfMonth + ' \u5929'),
+        buildCard(secondsToday / 86400, '#ffd166', '\u65e5', now.getHours() + ' \u65f6 ' + now.getMinutes() + ' \u5206'),
+        buildCard((weekIndex + 1) / 7, '#5b8def', '\u661f\u671f', WEEK_NAMES[weekIndex]),
+      ]
+    },
+  }
+</script>
+
+<template>
+  <div class="page-root">
+    <div class="page-shell">
+      <text class="page-date">{{ todayText }}</text>
+
+      <scroll class="card-scroll" scroll-x="true">
+        <div class="card-row">
+          <div class="progress-card" for="(index, item) in cards">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 120 120">
+                <circle class="ring-track" cx="60" cy="60" r="48"></circle>
+                <circle class="ring-progress" cx="60" cy="60" r="48" stroke="{{item.color}}" stroke-dasharray="{{item.circumference}}" stroke-dashoffset="{{item.dashOffset}}"></circle>
+              </svg>
+
+              <div class="ring-center">
+                <text class="ring-percent">{{ item.percent }}</text>
+                <text class="ring-title">{{ item.title }}</text>
+              </div>
+            </div>
+
+            <text class="card-detail">{{ item.detail }}</text>
+          </div>
+        </div>
+      </scroll>
+    </div>
+  </div>
+</template>
+
+<style>
+  .page-root { width: 100%; height: 100%; background-color: #000000; }
+  .page-shell { width: 100%; height: 100%; background-color: #000000; flex-direction: column; align-items: center; }
+  .page-date { color: #9fb0c1; font-size: 24px; text-align: center; margin-top: 24px; margin-bottom: 20px; }
+  .card-scroll { width: 100%; height: 320px; }
+  .card-row { height: 320px; padding-left: 18px; padding-right: 18px; flex-direction: row; align-items: center; }
+  .progress-card { width: 182px; height: 244px; margin-right: 16px; padding-top: 24px; padding-right: 14px; padding-bottom: 20px; padding-left: 14px; border-radius: 26px; background-color: #111111; flex-direction: column; align-items: center; justify-content: space-between; }
+  .ring-wrap { width: 120px; height: 120px; position: relative; justify-content: center; align-items: center; }
+  .ring-svg { width: 120px; height: 120px; }
+  .ring-track { fill: none; stroke: #252525; stroke-width: 10px; }
+  .ring-progress { fill: none; stroke-width: 10px; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 60px 60px; }
+  .ring-center { position: absolute; width: 78px; height: 78px; border-radius: 39px; background-color: #000000; justify-content: center; align-items: center; }
+  .ring-percent { color: #ffffff; font-size: 24px; text-align: center; }
+  .ring-title { color: #9aa8b8; font-size: 18px; text-align: center; margin-top: 2px; }
+  .card-detail { width: 140px; color: #ffffff; font-size: 24px; text-align: center; lines: 2; }
+</style>

@@ -1,0 +1,75 @@
+<script>
+  import historyData from './historyData'
+
+  function pad2(value) {
+    return value < 10 ? '0' + value : '' + value
+  }
+
+  export default {
+    data: {
+      titleText: 'Today In History',
+      heroCaption: '\u5386\u53f2\u4e0a\u7684\u4eca\u5929',
+      sectionTitle: '\u4e8b\u4ef6',
+      todayText: '',
+      monthDayText: '',
+      events: [],
+    },
+
+    onInit() {
+      this.loadHistory()
+    },
+
+    loadHistory() {
+      const now = new Date()
+      const key = pad2(now.getMonth() + 1) + '-' + pad2(now.getDate())
+      this.todayText =
+        now.getFullYear() +
+        '\u5e74' +
+        (now.getMonth() + 1) +
+        '\u6708' +
+        now.getDate() +
+        '\u65e5'
+      this.monthDayText =
+        now.getMonth() + 1 + '\u6708' + now.getDate() + '\u65e5'
+      this.events = historyData[key] || []
+    },
+  }
+</script>
+
+<template>
+  <scroll class="page-scroll">
+    <div class="page-shell">
+      <text class="page-title">{{ titleText }}</text>
+      <text class="page-date">{{ todayText }}</text>
+
+      <div class="hero-card">
+        <text class="hero-caption">{{ heroCaption }}</text>
+        <text class="hero-title">{{ monthDayText }}</text>
+      </div>
+
+      <div class="timeline-card">
+        <text class="section-title">{{ sectionTitle }}</text>
+
+        <div class="event-card" for="(index, item) in events">
+          <text class="event-year">{{ item.year }}</text>
+          <text class="event-text">{{ item.text }}</text>
+        </div>
+      </div>
+    </div>
+  </scroll>
+</template>
+
+<style>
+  .page-scroll { width: 100%; height: 100%; background-color: #000000; }
+  .page-shell { width: 100%; min-height: 100%; padding-top: 28px; padding-bottom: 32px; background-color: #000000; flex-direction: column; align-items: center; }
+  .page-title { color: #ffffff; font-size: 36px; text-align: center; }
+  .page-date { color: #8fa1b3; font-size: 22px; text-align: center; margin-top: 10px; }
+  .hero-card { width: 410px; margin-top: 24px; padding: 28px 22px; border-radius: 28px; background-color: #231515; flex-direction: column; align-items: center; }
+  .hero-caption { color: #e0a6a6; font-size: 20px; text-align: center; }
+  .hero-title { color: #ffffff; font-size: 40px; text-align: center; margin-top: 10px; }
+  .timeline-card { width: 410px; margin-top: 18px; padding: 22px 20px 20px 20px; border-radius: 28px; background-color: #0d1520; flex-direction: column; }
+  .section-title { color: #ffffff; font-size: 28px; margin-bottom: 8px; }
+  .event-card { margin-top: 12px; padding: 18px; border-radius: 22px; background-color: #151f2c; flex-direction: column; }
+  .event-year { color: #ffb4b4; font-size: 26px; }
+  .event-text { color: #e8edf3; font-size: 22px; margin-top: 10px; lines: 4; }
+</style>

@@ -1,0 +1,154 @@
+{
+  "2095071952": {
+    ".page-scroll": {
+      "width": "100%",
+      "height": "100%",
+      "backgroundColor": "#000000"
+    },
+    ".page-shell": {
+      "width": "100%",
+      "minHeight": "100%",
+      "paddingTop": "28px",
+      "paddingBottom": "32px",
+      "backgroundColor": "#000000",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".page-title": {
+      "color": "#ffffff",
+      "fontSize": "36px",
+      "textAlign": "center"
+    },
+    ".page-subtitle": {
+      "color": "#8fb3c9",
+      "fontSize": "22px",
+      "textAlign": "center",
+      "marginTop": "8px"
+    },
+    ".page-date": {
+      "color": "#7c8c9b",
+      "fontSize": "18px",
+      "textAlign": "center",
+      "marginTop": "8px"
+    },
+    ".status-card": {
+      "width": "410px",
+      "marginTop": "22px",
+      "paddingTop": "22px",
+      "paddingRight": "20px",
+      "paddingBottom": "22px",
+      "paddingLeft": "20px",
+      "borderRadius": "28px",
+      "backgroundColor": "#141c25",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".status-year": {
+      "color": "#ffd66b",
+      "fontSize": "34px",
+      "textAlign": "center"
+    },
+    ".status-text": {
+      "width": "300px",
+      "color": "#ffffff",
+      "fontSize": "24px",
+      "textAlign": "center",
+      "marginTop": "10px",
+      "lines": 2
+    },
+    ".status-source": {
+      "color": "#738495",
+      "fontSize": "16px",
+      "textAlign": "center",
+      "marginTop": "12px"
+    },
+    ".year-row": {
+      "width": "410px",
+      "marginTop": "16px",
+      "flexDirection": "row",
+      "justifyContent": "space-between"
+    },
+    ".year-chip": {
+      "width": "198px",
+      "height": "56px",
+      "borderRadius": "18px",
+      "backgroundColor": "#10151d",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    ".year-chip-active": {
+      "backgroundColor": "#1b3551"
+    },
+    ".year-chip-text": {
+      "color": "#94a8bb",
+      "fontSize": "22px",
+      "textAlign": "center"
+    },
+    ".year-chip-text-active": {
+      "color": "#ffffff"
+    },
+    ".section-card": {
+      "width": "410px",
+      "marginTop": "18px",
+      "paddingTop": "22px",
+      "paddingRight": "20px",
+      "paddingBottom": "20px",
+      "paddingLeft": "20px",
+      "borderRadius": "28px",
+      "backgroundColor": "#0d1520",
+      "flexDirection": "column"
+    },
+    ".section-title": {
+      "color": "#ffffff",
+      "fontSize": "28px",
+      "marginBottom": "8px"
+    },
+    ".holiday-card": {
+      "marginTop": "12px",
+      "paddingTop": "18px",
+      "paddingRight": "18px",
+      "paddingBottom": "18px",
+      "paddingLeft": "18px",
+      "borderRadius": "22px",
+      "backgroundColor": "#151f2c",
+      "flexDirection": "column"
+    },
+    ".holiday-head": {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "alignItems": "center"
+    },
+    ".holiday-name": {
+      "color": "#ffffff",
+      "fontSize": "26px"
+    },
+    ".holiday-days": {
+      "color": "#ffd66b",
+      "fontSize": "20px"
+    },
+    ".holiday-range": {
+      "color": "#b8c6d4",
+      "fontSize": "20px",
+      "marginTop": "10px"
+    },
+    ".workday-chip": {
+      "marginTop": "12px",
+      "paddingTop": "16px",
+      "paddingRight": "18px",
+      "paddingBottom": "16px",
+      "paddingLeft": "18px",
+      "borderRadius": "18px",
+      "backgroundColor": "#172231"
+    },
+    ".workday-text": {
+      "color": "#e8eef5",
+      "fontSize": "22px"
+    },
+    ".empty-text": {
+      "color": "#8192a3",
+      "fontSize": "20px",
+      "textAlign": "center",
+      "marginTop": "14px"
+    }
+  }
+}

@@ -1,0 +1,586 @@
+{
+  "type": "scroll",
+  "class": "page-scroll",
+  "style": {
+    "backgroundColor": "#000000",
+    "height": "100%",
+    "width": "100%"
+  },
+  "styleObjectId": 1302357824,
+  "children": [
+    {
+      "type": "div",
+      "class": "page-shell",
+      "style": {
+        "alignItems": "center",
+        "backgroundColor": "#000000",
+        "flexDirection": "column",
+        "minHeight": "100%",
+        "paddingBottom": "24px",
+        "paddingTop": "28px",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "type": "text",
+          "attr": {
+            "$value": "greetingText"
+          },
+          "bind": 1,
+          "class": "greeting",
+          "style": {
+            "color": "#f8fbff",
+            "fontSize": "44px",
+            "textAlign": "center"
+          }
+        },
+        {
+          "type": "text",
+          "attr": {
+            "$value": "poemText"
+          },
+          "bind": 1,
+          "class": "poem-text",
+          "style": {
+            "color": "#c7d2de",
+            "fontSize": "24px",
+            "lines": 2,
+            "marginTop": "20px",
+            "textAlign": "center",
+            "width": "360px"
+          }
+        },
+        {
+          "type": "text",
+          "attr": {
+            "$value": "poemAuthor"
+          },
+          "bind": 1,
+          "class": "poem-author",
+          "style": {
+            "color": "#8e99a5",
+            "fontSize": "20px",
+            "lines": 1,
+            "marginTop": "8px",
+            "textAlign": "center",
+            "width": "360px"
+          }
+        },
+        {
+          "type": "div",
+          "class": "grid",
+          "style": {
+            "flexDirection": "column",
+            "marginTop": "26px"
+          },
+          "children": [
+            {
+              "type": "div",
+              "class": "row",
+              "style": {
+                "flexDirection": "row"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell1",
+                      "events": {
+                        "click": "goPage1"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#ff6b6b",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "日历"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell2",
+                      "events": {
+                        "click": "goPage2"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#ff9f43",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "月相"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell3",
+                      "events": {
+                        "click": "goPage3"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#feca57",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "节气"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "div",
+              "class": "row",
+              "style": {
+                "flexDirection": "row"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell4",
+                      "events": {
+                        "click": "goPage4"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#48dbfb",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "今日历史"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell5",
+                      "events": {
+                        "click": "goPage5"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#ff9ff3",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "每日一言"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell6",
+                      "events": {
+                        "click": "goPage6"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#54a0ff",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "时间进度"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "div",
+              "class": "row",
+              "style": {
+                "flexDirection": "row"
+              },
+              "children": [
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell7",
+                      "events": {
+                        "click": "goPage7"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#5f27cd",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "抽签"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell8",
+                      "events": {
+                        "click": "goPage8"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#00d2d3",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "调休"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "div",
+                  "class": "card-wrap",
+                  "style": {
+                    "marginBottom": "6px",
+                    "marginLeft": "6px",
+                    "marginRight": "6px",
+                    "marginTop": "6px",
+                    "width": "130px"
+                  },
+                  "children": [
+                    {
+                      "type": "div",
+                      "bind": 1,
+                      "class": "cell cell9",
+                      "events": {
+                        "click": "goPage9"
+                      },
+                      "style": {
+                        "alignItems": "center",
+                        "backgroundColor": "#1dd1a1",
+                        "borderBottomColor": "rgba(255,255,255,0.08)",
+                        "borderBottomWidth": "2px",
+                        "borderLeftColor": "rgba(255,255,255,0.08)",
+                        "borderLeftWidth": "2px",
+                        "borderRadius": "18px",
+                        "borderRightColor": "rgba(255,255,255,0.08)",
+                        "borderRightWidth": "2px",
+                        "borderTopColor": "rgba(255,255,255,0.08)",
+                        "borderTopWidth": "2px",
+                        "height": "130px",
+                        "justifyContent": "center",
+                        "width": "130px"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "attr": {
+                            "value": "关于"
+                          },
+                          "class": "card-label",
+                          "style": {
+                            "color": "#f7fbff",
+                            "fontSize": "22px",
+                            "lines": 2,
+                            "textAlign": "center",
+                            "width": "96px"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "1413841324": {
+    ".page-scroll": {
+      "width": "100%",
+      "height": "100%",
+      "backgroundColor": "#000000"
+    },
+    ".page-shell": {
+      "width": "100%",
+      "minHeight": "100%",
+      "paddingTop": "28px",
+      "paddingBottom": "32px",
+      "backgroundColor": "#000000",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".page-title": {
+      "color": "#ffffff",
+      "fontSize": "36px",
+      "textAlign": "center"
+    },
+    ".page-date": {
+      "color": "#8fa1b3",
+      "fontSize": "22px",
+      "textAlign": "center",
+      "marginTop": "10px"
+    },
+    ".hero-card": {
+      "width": "410px",
+      "marginTop": "24px",
+      "paddingTop": "28px",
+      "paddingRight": "22px",
+      "paddingBottom": "28px",
+      "paddingLeft": "22px",
+      "borderRadius": "28px",
+      "backgroundColor": "#231515",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".hero-caption": {
+      "color": "#e0a6a6",
+      "fontSize": "20px",
+      "textAlign": "center"
+    },
+    ".hero-title": {
+      "color": "#ffffff",
+      "fontSize": "40px",
+      "textAlign": "center",
+      "marginTop": "10px"
+    },
+    ".timeline-card": {
+      "width": "410px",
+      "marginTop": "18px",
+      "paddingTop": "22px",
+      "paddingRight": "20px",
+      "paddingBottom": "20px",
+      "paddingLeft": "20px",
+      "borderRadius": "28px",
+      "backgroundColor": "#0d1520",
+      "flexDirection": "column"
+    },
+    ".section-title": {
+      "color": "#ffffff",
+      "fontSize": "28px",
+      "marginBottom": "8px"
+    },
+    ".event-card": {
+      "marginTop": "12px",
+      "paddingTop": "18px",
+      "paddingRight": "18px",
+      "paddingBottom": "18px",
+      "paddingLeft": "18px",
+      "borderRadius": "22px",
+      "backgroundColor": "#151f2c",
+      "flexDirection": "column"
+    },
+    ".event-year": {
+      "color": "#ffb4b4",
+      "fontSize": "26px"
+    },
+    ".event-text": {
+      "color": "#e8edf3",
+      "fontSize": "22px",
+      "marginTop": "10px",
+      "lines": 4
+    }
+  }
+}

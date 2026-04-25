@@ -1,0 +1,74 @@
+{
+  "package": "com.data.demo",
+  "name": "data",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "appCategory": [
+    "other"
+  ],
+  "icon": "/assets/images/logo.png",
+  "features": [
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "blueos.app.router"
+    },
+    {
+      "name": "system.fetch"
+    },
+    {
+      "name": "system.storage"
+    }
+  ],
+  "deviceTypeList": [
+    "watch-square",
+    "watch-round"
+  ],
+  "config": {
+    "designWidth": 466,
+    "debug": true
+  },
+  "router": {
+    "entry": "pages/Demo",
+    "pages": {
+      "pages/Demo": {
+        "component": "index"
+      },
+      "pages/DemoDetail": {
+        "component": "index"
+      },
+      "pages/Page1": {
+        "component": "index"
+      },
+      "pages/Page2": {
+        "component": "index"
+      },
+      "pages/Page3": {
+        "component": "index"
+      },
+      "pages/Page4": {
+        "component": "index"
+      },
+      "pages/Page5": {
+        "component": "index"
+      },
+      "pages/Page6": {
+        "component": "index"
+      },
+      "pages/Page7": {
+        "component": "index"
+      },
+      "pages/Page8": {
+        "component": "index"
+      },
+      "pages/Page9": {
+        "component": "index"
+      }
+    }
+  },
+  "display": {
+    "backgroundColor": "#000000"
+  },
+  "minPlatformVersion": 1070
+}

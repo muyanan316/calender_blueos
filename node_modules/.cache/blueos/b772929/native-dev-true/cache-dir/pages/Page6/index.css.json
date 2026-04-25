@@ -1,0 +1,98 @@
+{
+  "1806868334": {
+    ".page-root": {
+      "width": "100%",
+      "height": "100%",
+      "backgroundColor": "#000000"
+    },
+    ".page-shell": {
+      "width": "100%",
+      "height": "100%",
+      "backgroundColor": "#000000",
+      "flexDirection": "column",
+      "alignItems": "center"
+    },
+    ".page-date": {
+      "color": "#9fb0c1",
+      "fontSize": "24px",
+      "textAlign": "center",
+      "marginTop": "24px",
+      "marginBottom": "20px"
+    },
+    ".card-scroll": {
+      "width": "100%",
+      "height": "320px"
+    },
+    ".card-row": {
+      "height": "320px",
+      "paddingLeft": "18px",
+      "paddingRight": "18px",
+      "flexDirection": "row",
+      "alignItems": "center"
+    },
+    ".progress-card": {
+      "width": "182px",
+      "height": "244px",
+      "marginRight": "16px",
+      "paddingTop": "24px",
+      "paddingRight": "14px",
+      "paddingBottom": "20px",
+      "paddingLeft": "14px",
+      "borderRadius": "26px",
+      "backgroundColor": "#111111",
+      "flexDirection": "column",
+      "alignItems": "center",
+      "justifyContent": "space-between"
+    },
+    ".ring-wrap": {
+      "width": "120px",
+      "height": "120px",
+      "position": "relative",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    ".ring-svg": {
+      "width": "120px",
+      "height": "120px"
+    },
+    ".ring-track": {
+      "fill": "none",
+      "stroke": "#252525",
+      "strokeWidth": "10px"
+    },
+    ".ring-progress": {
+      "fill": "none",
+      "strokeWidth": "10px",
+      "strokeLinecap": "round",
+      "transform": "{\"rotate\":\"-90deg\"}",
+      "transformOrigin": "60px 60px"
+    },
+    ".ring-center": {
+      "position": "absolute",
+      "width": "78px",
+      "height": "78px",
+      "borderRadius": "39px",
+      "backgroundColor": "#000000",
+      "justifyContent": "center",
+      "alignItems": "center"
+    },
+    ".ring-percent": {
+      "color": "#ffffff",
+      "fontSize": "24px",
+      "textAlign": "center"
+    },
+    ".ring-title": {
+      "color": "#9aa8b8",
+      "fontSize": "18px",
+      "textAlign": "center",
+      "marginTop": "2px"
+    },
+    ".card-detail": {
+      "width": "140px",
+      "color": "#ffffff",
+      "fontSize": "24px",
+      "textAlign": "center",
+      "lines": 2
+    }
+  }
+}

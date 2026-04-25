@@ -1,0 +1,142 @@
+{
+  "type": "scroll",
+  "class": "page-scroll",
+  "style": {
+    "backgroundColor": "#000000",
+    "height": "100%",
+    "width": "100%"
+  },
+  "styleObjectId": 1898558447,
+  "children": [
+    {
+      "type": "div",
+      "class": "page-shell",
+      "style": {
+        "alignItems": "center",
+        "backgroundColor": "#000000",
+        "flexDirection": "column",
+        "minHeight": "100%",
+        "paddingBottom": "32px",
+        "paddingTop": "28px",
+        "width": "100%"
+      },
+      "children": [
+        {
+          "type": "text",
+          "attr": {
+            "$value": "titleText"
+          },
+          "bind": 1,
+          "class": "page-title",
+          "style": {
+            "color": "#ffffff",
+            "fontSize": "36px",
+            "textAlign": "center"
+          }
+        },
+        {
+          "type": "div",
+          "class": "avatar-card",
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#131a24",
+            "borderRadius": "30px",
+            "flexDirection": "column",
+            "marginTop": "24px",
+            "paddingBottom": "26px",
+            "paddingTop": "26px",
+            "width": "410px"
+          },
+          "children": [
+            {
+              "type": "image",
+              "attr": {
+                "$src": "avatarSrc"
+              },
+              "bind": 1,
+              "class": "avatar-image",
+              "style": {
+                "borderRadius": "110px",
+                "height": "220px",
+                "width": "220px"
+              }
+            }
+          ]
+        },
+        {
+          "type": "div",
+          "class": "info-card",
+          "style": {
+            "alignItems": "center",
+            "backgroundColor": "#10151d",
+            "borderRadius": "28px",
+            "flexDirection": "column",
+            "marginTop": "18px",
+            "paddingBottom": "24px",
+            "paddingLeft": "22px",
+            "paddingRight": "22px",
+            "paddingTop": "24px",
+            "width": "410px"
+          },
+          "children": [
+            {
+              "type": "text",
+              "attr": {
+                "$value": "nameText"
+              },
+              "bind": 1,
+              "class": "name-text",
+              "style": {
+                "color": "#ffffff",
+                "fontSize": "34px",
+                "textAlign": "center"
+              }
+            },
+            {
+              "type": "text",
+              "attr": {
+                "$value": "descOne"
+              },
+              "bind": 1,
+              "class": "desc-text",
+              "style": {
+                "color": "#d7e0ea",
+                "fontSize": "24px",
+                "marginTop": "14px",
+                "textAlign": "center"
+              }
+            },
+            {
+              "type": "text",
+              "attr": {
+                "$value": "descTwo"
+              },
+              "bind": 1,
+              "class": "desc-text",
+              "style": {
+                "color": "#d7e0ea",
+                "fontSize": "24px",
+                "marginTop": "14px",
+                "textAlign": "center"
+              }
+            },
+            {
+              "type": "text",
+              "attr": {
+                "$value": "noteText"
+              },
+              "bind": 1,
+              "class": "note-text",
+              "style": {
+                "color": "#8ea1b3",
+                "fontSize": "18px",
+                "marginTop": "18px",
+                "textAlign": "center"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

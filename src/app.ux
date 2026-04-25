@@ -1,0 +1,8 @@
+<script>
+  /**manifest**/
+  import './global.js'
+
+  export default {
+    onCreate() {},
+  }
+</script>

@@ -1,0 +1,258 @@
+<script>
+  const HOLIDAY_DATA = {
+    '2025': {
+      holidays: [
+        { name: '元旦', range: '2025-01-01', days: 1, start: '2025-01-01' },
+        { name: '春节', range: '2025-01-28 ~ 2025-02-04', days: 8, start: '2025-01-28' },
+        { name: '清明节', range: '2025-04-04 ~ 2025-04-06', days: 3, start: '2025-04-04' },
+        { name: '劳动节', range: '2025-05-01 ~ 2025-05-05', days: 5, start: '2025-05-01' },
+        { name: '端午节', range: '2025-05-31 ~ 2025-06-02', days: 3, start: '2025-05-31' },
+        { name: '国庆/中秋', range: '2025-10-01 ~ 2025-10-08', days: 8, start: '2025-10-01' },
+      ],
+      workdays: ['2025-01-26', '2025-02-08', '2025-04-27', '2025-09-28', '2025-10-11'],
+      sourceText: '国办发明电〔2024〕12号',
+    },
+    '2026': {
+      holidays: [
+        { name: '元旦', range: '2026-01-01 ~ 2026-01-03', days: 3, start: '2026-01-01' },
+        { name: '春节', range: '2026-02-15 ~ 2026-02-23', days: 9, start: '2026-02-15' },
+        { name: '清明节', range: '2026-04-04 ~ 2026-04-06', days: 3, start: '2026-04-04' },
+        { name: '劳动节', range: '2026-05-01 ~ 2026-05-05', days: 5, start: '2026-05-01' },
+        { name: '端午节', range: '2026-06-19 ~ 2026-06-21', days: 3, start: '2026-06-19' },
+        { name: '中秋节', range: '2026-09-25 ~ 2026-09-27', days: 3, start: '2026-09-25' },
+        { name: '国庆节', range: '2026-10-01 ~ 2026-10-07', days: 7, start: '2026-10-01' },
+      ],
+      workdays: ['2026-01-04', '2026-02-14', '2026-02-28', '2026-05-09', '2026-09-20', '2026-10-10'],
+      sourceText: '国办发明电〔2025〕7号',
+    },
+  }
+
+  function getTodayKey() {
+    const now = new Date()
+    return (
+      now.getFullYear() +
+      '-' +
+      String(now.getMonth() + 1).padStart(2, '0') +
+      '-' +
+      String(now.getDate()).padStart(2, '0')
+    )
+  }
+
+  function getAvailableYears() {
+    const years = Object.keys(HOLIDAY_DATA)
+    const todayKey = getTodayKey()
+    const result = []
+    let i = 0
+
+    for (i = 0; i < years.length; i++) {
+      const year = years[i]
+      const holidayCards = buildHolidayCards(HOLIDAY_DATA[year].holidays, todayKey)
+      const workdayCards = buildWorkdayCards(HOLIDAY_DATA[year].workdays, todayKey)
+      if (holidayCards.length > 0 || workdayCards.length > 0) {
+        result.push(year)
+      }
+    }
+
+    return result
+  }
+
+  function buildYearButtons(selectedYear, yearList) {
+    const list = []
+    let i = 0
+    for (i = 0; i < yearList.length; i++) {
+      list.push({
+        year: yearList[i],
+        buttonClass:
+          yearList[i] === selectedYear
+            ? 'year-chip year-chip-active'
+            : 'year-chip',
+        textClass:
+          yearList[i] === selectedYear
+            ? 'year-chip-text year-chip-text-active'
+            : 'year-chip-text',
+      })
+    }
+    return list
+  }
+
+  function buildHolidayCards(items, todayKey) {
+    const list = []
+    let i = 0
+    for (i = 0; i < items.length; i++) {
+      if (items[i].start >= todayKey) {
+        list.push({
+          name: items[i].name,
+          range: items[i].range,
+          daysText: items[i].days + '天',
+        })
+      }
+    }
+    return list
+  }
+
+  function buildWorkdayCards(items, todayKey) {
+    const list = []
+    let i = 0
+    for (i = 0; i < items.length; i++) {
+      if (items[i] >= todayKey) {
+        list.push({
+          text: items[i],
+        })
+      }
+    }
+    return list
+  }
+
+  function getStatusText(dateText, holidays, workdays) {
+    let i = 0
+    for (i = 0; i < workdays.length; i++) {
+      if (workdays[i] === dateText) {
+        return '今日为调休上班'
+      }
+    }
+
+    for (i = 0; i < holidays.length; i++) {
+      if (holidays[i].range.indexOf(dateText) >= 0) {
+        return '今日在放假范围内'
+      }
+    }
+
+    return '今日为普通日'
+  }
+
+  export default {
+    data: {
+      titleText: 'Holiday Schedule',
+      subtitleText: '调休与放假',
+      todayText: '',
+      statusText: '',
+      selectedYear: '2026',
+      sourceText: '',
+      availableYears: [],
+      yearButtons: [],
+      holidayCards: [],
+      workdayCards: [],
+    },
+
+    onInit() {
+      const now = new Date()
+      const availableYears = getAvailableYears()
+      const currentYear = '' + now.getFullYear()
+
+      this.availableYears = availableYears
+
+      if (availableYears.indexOf(currentYear) >= 0) {
+        this.selectedYear = currentYear
+      } else if (availableYears.length > 0) {
+        this.selectedYear = availableYears[0]
+      }
+
+      this.todayText =
+        now.getFullYear() +
+        '年' +
+        (now.getMonth() + 1) +
+        '月' +
+        now.getDate() +
+        '日'
+      this.applyYear(this.selectedYear)
+    },
+
+    applyYear(year) {
+      const data = HOLIDAY_DATA[year]
+      const now = new Date()
+      const todayKey = getTodayKey()
+
+      this.selectedYear = year
+      this.sourceText = data.sourceText
+      this.yearButtons = buildYearButtons(year, this.availableYears)
+      this.holidayCards = buildHolidayCards(data.holidays, todayKey)
+      this.workdayCards = buildWorkdayCards(data.workdays, todayKey)
+
+      if ('' + now.getFullYear() === year) {
+        this.statusText = getStatusText(todayKey, data.holidays, data.workdays)
+      } else {
+        this.statusText = '已切换至 ' + year + ' 年调休安排'
+      }
+    },
+
+    chooseYear(event) {
+      const year = event && event.currentTarget && event.currentTarget.attr && event.currentTarget.attr.dataYear
+      if (year && HOLIDAY_DATA[year]) {
+        this.applyYear(year)
+      }
+    },
+  }
+</script>
+
+<template>
+  <scroll class="page-scroll">
+    <div class="page-shell">
+      <text class="page-title">{{ titleText }}</text>
+      <text class="page-subtitle">{{ subtitleText }}</text>
+      <text class="page-date">{{ todayText }}</text>
+
+      <div class="status-card">
+        <text class="status-year">{{ selectedYear }}年</text>
+        <text class="status-text">{{ statusText }}</text>
+        <text class="status-source">{{ sourceText }}</text>
+      </div>
+
+      <div class="year-row" if="{{yearButtons.length > 1}}">
+        <div class="{{ item.buttonClass }}" for="(index, item) in yearButtons" onclick="chooseYear" data-year="{{ item.year }}">
+          <text class="{{ item.textClass }}">{{ item.year }}</text>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <text class="section-title">放假安排</text>
+
+        <div class="holiday-card" for="(index, item) in holidayCards">
+          <div class="holiday-head">
+            <text class="holiday-name">{{ item.name }}</text>
+            <text class="holiday-days">{{ item.daysText }}</text>
+          </div>
+          <text class="holiday-range">{{ item.range }}</text>
+        </div>
+
+        <text class="empty-text" if="{{holidayCards.length === 0}}">后续没有待显示的放假安排</text>
+      </div>
+
+      <div class="section-card">
+        <text class="section-title">调休上班</text>
+
+        <div class="workday-chip" for="(index, item) in workdayCards">
+          <text class="workday-text">{{ item.text }}</text>
+        </div>
+
+        <text class="empty-text" if="{{workdayCards.length === 0}}">后续没有待显示的调休上班日</text>
+      </div>
+    </div>
+  </scroll>
+</template>
+
+<style>
+  .page-scroll { width: 100%; height: 100%; background-color: #000000; }
+  .page-shell { width: 100%; min-height: 100%; padding-top: 28px; padding-bottom: 32px; background-color: #000000; flex-direction: column; align-items: center; }
+  .page-title { color: #ffffff; font-size: 36px; text-align: center; }
+  .page-subtitle { color: #8fb3c9; font-size: 22px; text-align: center; margin-top: 8px; }
+  .page-date { color: #7c8c9b; font-size: 18px; text-align: center; margin-top: 8px; }
+  .status-card { width: 410px; margin-top: 22px; padding: 22px 20px; border-radius: 28px; background-color: #141c25; flex-direction: column; align-items: center; }
+  .status-year { color: #ffd66b; font-size: 34px; text-align: center; }
+  .status-text { width: 300px; color: #ffffff; font-size: 24px; text-align: center; margin-top: 10px; lines: 2; }
+  .status-source { color: #738495; font-size: 16px; text-align: center; margin-top: 12px; }
+  .year-row { width: 410px; margin-top: 16px; flex-direction: row; justify-content: space-between; }
+  .year-chip { width: 198px; height: 56px; border-radius: 18px; background-color: #10151d; justify-content: center; align-items: center; }
+  .year-chip-active { background-color: #1b3551; }
+  .year-chip-text { color: #94a8bb; font-size: 22px; text-align: center; }
+  .year-chip-text-active { color: #ffffff; }
+  .section-card { width: 410px; margin-top: 18px; padding: 22px 20px 20px 20px; border-radius: 28px; background-color: #0d1520; flex-direction: column; }
+  .section-title { color: #ffffff; font-size: 28px; margin-bottom: 8px; }
+  .holiday-card { margin-top: 12px; padding: 18px; border-radius: 22px; background-color: #151f2c; flex-direction: column; }
+  .holiday-head { flex-direction: row; justify-content: space-between; align-items: center; }
+  .holiday-name { color: #ffffff; font-size: 26px; }
+  .holiday-days { color: #ffd66b; font-size: 20px; }
+  .holiday-range { color: #b8c6d4; font-size: 20px; margin-top: 10px; }
+  .workday-chip { margin-top: 12px; padding: 16px 18px; border-radius: 18px; background-color: #172231; }
+  .workday-text { color: #e8eef5; font-size: 22px; }
+  .empty-text { color: #8192a3; font-size: 20px; text-align: center; margin-top: 14px; }
+</style>

@@ -1,0 +1,220 @@
+<script>
+  import router from '@system.router'
+
+  const POEMS = [
+    { text: '\u5e8a\u524d\u660e\u6708\u5149\uff0c\u7591\u662f\u5730\u4e0a\u971c\u3002', author: '\u674e\u767d\u300a\u9759\u591c\u601d\u300b' },
+    { text: '\u6625\u7720\u4e0d\u89c9\u6653\uff0c\u5904\u5904\u95fb\u557c\u9e1f\u3002', author: '\u5b5f\u6d69\u7136\u300a\u6625\u6653\u300b' },
+    { text: '\u4e3e\u5934\u671b\u660e\u6708\uff0c\u4f4e\u5934\u601d\u6545\u4e61\u3002', author: '\u674e\u767d\u300a\u9759\u591c\u601d\u300b' },
+    { text: '\u6b32\u7a77\u5343\u91cc\u76ee\uff0c\u66f4\u4e0a\u4e00\u5c42\u697c\u3002', author: '\u738b\u4e4b\u6da3\u300a\u767b\u9e73\u96c0\u697c\u300b' },
+    { text: '\u4f1a\u5f53\u51cc\u7edd\u9876\uff0c\u4e00\u89c8\u4f17\u5c71\u5c0f\u3002', author: '\u675c\u752b\u300a\u671b\u5cb3\u300b' },
+  ]
+
+  const RANDOM_GREETINGS = [
+    'Good Day',
+    '\u4f60\u597d\uff01',
+    'Hello\uff01',
+    'Ciallo(\u2220\u30fb\u03c9< )\u2312\u2606',
+  ]
+
+  export default {
+    data: {
+      greetingText: '',
+      poemText: '',
+      poemAuthor: '',
+    },
+
+    onInit() {
+      this.updateGreeting()
+      this.updatePoem()
+    },
+
+    updateGreeting() {
+      const hour = new Date().getHours()
+      if (Math.random() < 0.7) {
+        this.greetingText =
+          RANDOM_GREETINGS[Math.floor(Math.random() * RANDOM_GREETINGS.length)]
+        return
+      }
+      if (hour >= 5 && hour < 12) {
+        this.greetingText =
+          Math.random() < 0.5
+            ? '\u65e9\u4e0a\u597d'
+            : 'Good morning'
+      } else if (hour >= 12 && hour < 18) {
+        this.greetingText =
+          Math.random() < 0.5
+            ? '\u4e0b\u5348\u597d'
+            : 'Good afternoon'
+      } else {
+        this.greetingText =
+          Math.random() < 0.5
+            ? '\u665a\u4e0a\u597d'
+            : 'Good evening'
+      }
+    },
+
+    updatePoem() {
+      const item = POEMS[Math.floor(Math.random() * POEMS.length)]
+      this.poemText = item.text
+      this.poemAuthor = item.author
+    },
+
+    goPage1() { router.push({ uri: '/pages/Page1' }) },
+    goPage2() { router.push({ uri: '/pages/Page2' }) },
+    goPage3() { router.push({ uri: '/pages/Page3' }) },
+    goPage4() { router.push({ uri: '/pages/Page4' }) },
+    goPage5() { router.push({ uri: '/pages/Page5' }) },
+    goPage6() { router.push({ uri: '/pages/Page6' }) },
+    goPage7() { router.push({ uri: '/pages/Page7' }) },
+    goPage8() { router.push({ uri: '/pages/Page8' }) },
+    goPage9() { router.push({ uri: '/pages/Page9' }) },
+  }
+</script>
+
+<template>
+  <scroll class="page-scroll">
+    <div class="page-shell">
+      <text class="greeting">{{ greetingText }}</text>
+      <text class="poem-text">{{ poemText }}</text>
+      <text class="poem-author">{{ poemAuthor }}</text>
+
+      <div class="grid">
+        <div class="row">
+          <div class="card-wrap">
+            <div class="cell cell1" onclick="goPage1">
+              <text class="card-label">日历</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell2" onclick="goPage2">
+              <text class="card-label">月相</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell3" onclick="goPage3">
+              <text class="card-label">节气</text>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card-wrap">
+            <div class="cell cell4" onclick="goPage4">
+              <text class="card-label">今日历史</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell5" onclick="goPage5">
+              <text class="card-label">每日一言</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell6" onclick="goPage6">
+              <text class="card-label">时间进度</text>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card-wrap">
+            <div class="cell cell7" onclick="goPage7">
+              <text class="card-label">抽签</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell8" onclick="goPage8">
+              <text class="card-label">调休</text>
+            </div>
+          </div>
+          <div class="card-wrap">
+            <div class="cell cell9" onclick="goPage9">
+              <text class="card-label">关于</text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </scroll>
+</template>
+
+<style>
+  .page-scroll {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+  }
+
+  .page-shell {
+    width: 100%;
+    min-height: 100%;
+    background-color: #000000;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+
+  .greeting {
+    color: #f8fbff;
+    font-size: 44px;
+    text-align: center;
+  }
+
+  .poem-text {
+    width: 360px;
+    color: #c7d2de;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    lines: 2;
+  }
+
+  .poem-author {
+    width: 360px;
+    color: #8e99a5;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 8px;
+    lines: 1;
+  }
+
+  .grid {
+    margin-top: 26px;
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .card-wrap {
+    width: 130px;
+    margin: 6px;
+  }
+
+  .card-label {
+    width: 96px;
+    color: #f7fbff;
+    font-size: 22px;
+    text-align: center;
+    lines: 2;
+  }
+
+  .cell {
+    width: 130px;
+    height: 130px;
+    border-radius: 18px;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.08);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cell1 { background-color: #ff6b6b; }
+  .cell2 { background-color: #ff9f43; }
+  .cell3 { background-color: #feca57; }
+  .cell4 { background-color: #48dbfb; }
+  .cell5 { background-color: #ff9ff3; }
+  .cell6 { background-color: #54a0ff; }
+  .cell7 { background-color: #5f27cd; }
+  .cell8 { background-color: #00d2d3; }
+  .cell9 { background-color: #1dd1a1; }
+</style>
