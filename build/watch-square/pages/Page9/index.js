@@ -10,8 +10,8 @@ const $app_script$1898558447 = {
       titleText: "About",
       nameText: "沐言暗",
       descOne: "本项目已开源",
-      descTwo: "本项目使用 AI 制作",
-      noteText: "感谢你的关注与使用",
+      descTwo: "使用 AI 制作",
+      noteText: "仓库地址：https://github.com/muyanan316/calender_blueos",
       avatarSrc: "/assets/images/avatar.png"
     };
   }
