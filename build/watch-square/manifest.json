@@ -1,12 +1,12 @@
 {
-  "package": "com.data.demo",
-  "name": "data",
+  "package": "com.calender.demo",
+  "name": "calender",
   "versionName": "1.0.0",
   "versionCode": 1,
   "appCategory": [
     "other"
   ],
-  "icon": "/assets/images/logo.png",
+  "icon": "/assets/images/logo.jpg",
   "features": [
     {
       "name": "system.router"
